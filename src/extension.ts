@@ -1,9 +1,6 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import * as cp from 'child_process';
-import Linter, { LinterError } from './linter';
-import { Problem } from './protoError'
+import Linter from './linter';
 
 const diagnosticCollection = vscode.languages.createDiagnosticCollection("api-linter");
 

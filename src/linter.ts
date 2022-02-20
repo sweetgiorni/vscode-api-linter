@@ -17,12 +17,12 @@ export default class Linter {
     }
 
     public async lint(): Promise<vscode.Diagnostic[]> {
-     const result_json = await this.runProtoLint();
-        if (!result_json) {
+     const resultJson = await this.runProtoLint();
+        if (!resultJson) {
             return [];
         }
         
-        const result = Convert.toAPILinterErrors(result_json);
+        const result = Convert.toAPILinterErrors(resultJson);
         for (const file of result) {
             if (this.codeDocument.uri.fsPath.endsWith(file.filePath)) {
                 return file.problems.map(this.problemToDiagnostic);
